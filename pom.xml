@@ -14,7 +14,7 @@
 	<properties>
 		<version.guava>16.0.1</version.guava>
 		<lombok.ds.version>0.1.6</lombok.ds.version>
-		<ds.bean.version>0.1.7</ds.bean.version>
+		<ds.bean.version>0.1.8</ds.bean.version>
 
 		<gwt.version>2.6.0</gwt.version>
 		<gwt.style>OBFUSCATED</gwt.style>
@@ -252,6 +252,16 @@
 		<repository>
 			<id>ds-releases</id>
 			<url>http://repo.doctusoft.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>ds-releases-public</id>
+			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>

@@ -15,8 +15,8 @@
 	<source path="shared" />
 	<entry-point class="com.doctusoft.gwt.light.client.MvpExampleEntryPoint" />
 	
-	<!-- ClientFactory 
-	<replace-with class="hu.tigra.agrar.shared.ClientFactoryImpl">
-		<when-type-is class="hu.tigra.agrar.client.ClientFactory"/>
-	</replace-with>-->
+	<!-- ClientFactory --> 
+	<replace-with class="com.doctusoft.gwt.light.client.ClientFactoryImpl">
+		<when-type-is class="com.doctusoft.gwt.light.shared.ClientFactory"/>
+	</replace-with>
 </module>
