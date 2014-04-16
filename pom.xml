@@ -8,6 +8,7 @@
 	
 	<modules>
 		<module>gwt-light</module>
+		<module>mvp-example</module>
 	</modules>
 
 	<properties>
@@ -36,6 +37,20 @@
 		<pluginManagement>
 			<plugins>
 			
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${version.maven.source.plugin}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+								<goal>test-jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>license-maven-plugin</artifactId>

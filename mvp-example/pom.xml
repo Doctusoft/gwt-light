@@ -5,13 +5,14 @@
 		<artifactId>gwt-light-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gwt-light</artifactId>
-	<name>gwt-light</name>
+	<artifactId>mvp-example</artifactId>
+	<name>mvp-example</name>
 
 	<properties>
 	</properties>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<resources>
 			<resource>
 			    <directory>${basedir}/src/main/java</directory>

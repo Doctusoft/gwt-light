@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.1//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.5.1/distro-source/core/src/gwt-module.dtd">
+<module rename-to="mvp-example">
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.http.HTTP" />
+	<inherits name="com.google.common.base.Base"/>
+	<inherits name="com.google.common.collect.Collect"/>
+	<inherits name="com.google.gwt.place.Place" />
+	<inherits name="com.google.gwt.activity.Activity" />
+	<inherits name="com.doctusoft.common.core.Bean" />
+	<inherits name="com.doctusoft.gwt.Light" />
+	<inherits name='com.xedge.jquery.GWTJQuery'/>
+	
+	<source path="client" />
+	<source path="shared" />
+	<entry-point class="com.doctusoft.gwt.light.client.MvpExampleEntryPoint" />
+	
+	<!-- ClientFactory 
+	<replace-with class="hu.tigra.agrar.shared.ClientFactoryImpl">
+		<when-type-is class="hu.tigra.agrar.client.ClientFactory"/>
+	</replace-with>-->
+</module>
