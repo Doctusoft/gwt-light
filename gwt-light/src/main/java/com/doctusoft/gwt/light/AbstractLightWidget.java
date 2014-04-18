@@ -69,11 +69,15 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	public Widget asWidget() {
 		Element element = root.get(0);
 		checkNotNull(element);
-		return new LightWidgetWrapper(element);
+		return new LightWidgetWrapper(element, this);
 	}
 	
-	private class LightWidgetWrapper extends Widget {
-		public LightWidgetWrapper(Element element) {
+	public static class LightWidgetWrapper extends Widget {
+		@Getter
+		private AbstractLightWidget<?> wrapped;
+
+		public LightWidgetWrapper(Element element, AbstractLightWidget<?> wrapped) {
+			this.wrapped = wrapped;
 			setElement(element);
 		}
 	}
