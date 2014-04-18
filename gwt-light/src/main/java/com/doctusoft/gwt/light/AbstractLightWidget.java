@@ -4,6 +4,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import lombok.Getter;
 import lombok.ObservableAttribute;
 
+import com.doctusoft.common.core.bean.ListenerRegistration;
 import com.doctusoft.common.core.bean.ValueChangeListener;
 import com.doctusoft.common.core.bean.binding.Bindings;
 import com.doctusoft.common.core.bean.binding.ValueBinding;
@@ -27,6 +28,8 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	@ObservableAttribute(staticField=false)
 	private boolean disabled;
 
+	protected ListenerRegistration visibilityChangeListener;
+
 	public AbstractLightWidget(JQuery root) {
 		this.root = root;
 		init();
@@ -38,7 +41,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	}
 
 	protected void init() {
-		_visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		visibilityChangeListener = _visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
 				if (newValue == Boolean.TRUE) {

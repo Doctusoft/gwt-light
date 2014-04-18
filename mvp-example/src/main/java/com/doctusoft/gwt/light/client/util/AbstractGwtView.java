@@ -6,7 +6,7 @@ import com.doctusoft.common.core.bean.ParametricClassMethodReferences.ClassMetho
 import com.doctusoft.common.core.bean.binding.Bindings;
 import com.doctusoft.common.core.bean.binding.observable.ObservableChainedValueBindingBuilder;
 import com.doctusoft.gwt.light.EmptyEventListener;
-import com.doctusoft.gwt.light.shared.ViewOf;
+import com.doctusoft.gwt.light.ViewOf;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 
 /**

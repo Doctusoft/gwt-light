@@ -1,7 +1,7 @@
 package com.doctusoft.gwt.light.client.util;
 
 import com.doctusoft.gwt.light.LightPanelWithPresenter;
-import com.doctusoft.gwt.light.shared.ViewOf;
+import com.doctusoft.gwt.light.ViewOf;
 import com.google.gwt.i18n.client.ConstantsWithLookup;
 import com.xedge.jquery.client.JQuery;
 

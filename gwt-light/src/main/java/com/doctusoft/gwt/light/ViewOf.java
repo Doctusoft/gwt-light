@@ -1,4 +1,4 @@
-package com.doctusoft.gwt.light.shared;
+package com.doctusoft.gwt.light;
 
 import com.google.gwt.user.client.ui.IsWidget;
 

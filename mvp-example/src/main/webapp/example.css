@@ -1,0 +1,10 @@
+#entityList {
+	list-style-type: none;
+}
+#entityList .entityId {
+	display: inline-block;
+	font-size: 16pt;
+}
+#entityList .entityName {
+	display: inline-block;
+}
