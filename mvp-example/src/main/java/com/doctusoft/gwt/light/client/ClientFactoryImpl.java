@@ -5,6 +5,8 @@ import lombok.LazyGetter;
 
 import com.doctusoft.gwt.light.client.index.IndexActivity;
 import com.doctusoft.gwt.light.client.index.IndexViewImpl;
+import com.doctusoft.gwt.light.client.list.ListActivity;
+import com.doctusoft.gwt.light.client.list.ListViewImpl;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.doctusoft.gwt.light.shared.GwtPlaceControllerWrapper;
 import com.doctusoft.gwt.light.shared.IPlaceController;
@@ -23,4 +25,7 @@ public class ClientFactoryImpl implements ClientFactory {
 	
 	@LazyGetter
 	private final ViewOf<IndexActivity> indexView = new IndexViewImpl();
+
+	@LazyGetter
+	private final ViewOf<ListActivity> listView = new ListViewImpl();
 }
