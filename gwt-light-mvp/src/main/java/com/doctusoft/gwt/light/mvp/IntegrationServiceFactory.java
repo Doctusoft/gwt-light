@@ -1,4 +1,4 @@
-package com.doctusoft.gwt.light;
+package com.doctusoft.gwt.light.mvp;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

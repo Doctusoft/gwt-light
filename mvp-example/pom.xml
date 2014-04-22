@@ -39,6 +39,11 @@
 			<artifactId>gwt-light</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.doctusoft.gwt</groupId>
+			<artifactId>gwt-light-mvp</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>

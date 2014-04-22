@@ -1,4 +1,4 @@
-package com.doctusoft.gwt.light.shared;
+package com.doctusoft.gwt.light.mvp;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;

@@ -1,4 +1,4 @@
-package com.doctusoft.gwt.light;
+package com.doctusoft.gwt.light.mvp;
 
 import java.util.LinkedHashSet;
 import java.util.Set;

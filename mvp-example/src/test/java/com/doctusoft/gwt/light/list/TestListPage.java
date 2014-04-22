@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.doctusoft.gwt.light.AbstractIntegrationTest;
-import com.doctusoft.gwt.light.TotallyDummyEmptyView;
 import com.doctusoft.gwt.light.client.list.ListActivity;
 import com.doctusoft.gwt.light.client.list.ListPlace;
 import com.doctusoft.gwt.light.client.list.NewEntityModalDialogPresenter;
+import com.doctusoft.gwt.light.mvp.TotallyDummyEmptyView;
 import com.google.gwt.thirdparty.guava.common.base.Strings;
 
 public class TestListPage extends AbstractIntegrationTest {

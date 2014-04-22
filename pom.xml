@@ -8,6 +8,7 @@
 	
 	<modules>
 		<module>gwt-light</module>
+		<module>gwt-light-mvp</module>
 		<module>mvp-example</module>
 	</modules>
 

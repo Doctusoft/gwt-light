@@ -1,8 +1,9 @@
-package com.doctusoft.gwt.light;
+package com.doctusoft.gwt.light.mvp;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import com.doctusoft.gwt.light.ViewOf;
 import com.google.gwt.user.client.ui.Widget;
 
 public class TotallyDummyEmptyView<T> implements ViewOf<T> {

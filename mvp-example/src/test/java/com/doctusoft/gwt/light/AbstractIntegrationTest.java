@@ -3,6 +3,7 @@ package com.doctusoft.gwt.light;
 import org.junit.After;
 import org.junit.Before;
 
+import com.doctusoft.gwt.light.mvp.AbstractIntegartionClientFactory;
 import com.google.common.base.Preconditions;
 import com.google.gwt.activity.shared.Activity;
 
@@ -21,7 +22,7 @@ public abstract class AbstractIntegrationTest {
 	}
 
 	protected <T extends Activity> T on(Class<T> activityClass) {
-		Activity activity = app.getClientFactory().getCurrentPresenter();
+		Activity activity = ((AbstractIntegartionClientFactory) app.getClientFactory()).getCurrentPresenter();
 		Preconditions.checkNotNull(activity);
 		Preconditions.checkState(activity.getClass().equals(activityClass));
 		return (T) activity;

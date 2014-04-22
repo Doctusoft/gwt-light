@@ -1,9 +1,9 @@
 package com.doctusoft.gwt.light.client;
 
 import com.doctusoft.gwt.light.client.index.IndexPlace;
+import com.doctusoft.gwt.light.mvp.GwtPlaceControllerWrapper;
+import com.doctusoft.gwt.light.mvp.IPlaceController;
 import com.doctusoft.gwt.light.shared.ClientFactory;
-import com.doctusoft.gwt.light.shared.GwtPlaceControllerWrapper;
-import com.doctusoft.gwt.light.shared.IPlaceController;
 import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.EntryPoint;
