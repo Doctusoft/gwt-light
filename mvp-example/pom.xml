@@ -10,6 +10,7 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<gae.version>1.9.0</gae.version>
 	</properties>
 
 	<build>
@@ -19,6 +20,57 @@
 			    <directory>${basedir}/src/main/java</directory>
 			</resource>
 		</resources>
+		<plugins>
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.9.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.version}</version>
+				<configuration>
+					<logLevel>INFO</logLevel>
+
+					<skip>${gwt.skip}</skip>
+
+					<!-- match -Dgae.port -->
+					<port>${gae.port}</port>
+
+					<!-- This must point to your GWT modules! -->
+					<modules>
+						<module>com.doctusoft.gwt.light.MvpExample</module>
+					</modules>
+
+					<!-- this specify where to put the non servable files -->
+					<!-- the important thing is to not to put them into the war -->
+					<deploy>${project.build.directory}/deploy</deploy>
+					<extra>${project.build.directory}/extra</extra>
+
+					<draftCompile>${gwt.draftCompile}</draftCompile>
+
+					<extraJvmArgs>-Xmx512m -Xss1024k -javaagent:${settings.localRepository}/com/doctusoft/lombok-ds/${lombok.ds.version}/lombok-ds-${lombok.ds.version}.jar</extraJvmArgs>
+					<server>com.google.appengine.tools.development.gwt.AppEngineLauncher</server>
+					<enableClosureCompiler>false</enableClosureCompiler>
+
+					<style>${gwt.style}</style>
+					<webXml>war/WEB-INF/web.xml</webXml>
+					<!-- if this is set incorrect (not a match), or left out you will have 
+						mysterious errors -->
+					<gwtVersion>${gwt.version}</gwtVersion>
+					<generateDirectory>${basedir}/src/main/java</generateDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 	
 	<dependencies>
@@ -43,6 +95,11 @@
 			<groupId>com.doctusoft.gwt</groupId>
 			<artifactId>gwt-light-mvp</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${gae.version}</version>
 		</dependency>
 	</dependencies>
 
