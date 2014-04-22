@@ -8,3 +8,13 @@
 #entityList .entityName {
 	display: inline-block;
 }
+
+.sourcecodelinks {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 10pt;
+}
+.sourcecodelinks a {
+	display: block;
+}
