@@ -9,6 +9,7 @@ import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.doctusoft.gwt.light.shared.TestEntityDTO;
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public class ListActivity extends AbstractActivity {
@@ -20,8 +21,11 @@ public class ListActivity extends AbstractActivity {
 	
 	private static int idSeries = 1;
 
+	private TestRemoteServiceAsync testService;
+
 	public ListActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
+		testService = clientFactory.getTestRemoteServiceAsync();
 	}
 	
 	@Override
@@ -46,6 +50,7 @@ public class ListActivity extends AbstractActivity {
 				TestEntityDTO dto = getDto();
 				dto.setId(++ idSeries);
 				testEntities.add(dto);
+				testService.itemAdded(dto, new EmtpyCallback<Void>());
 			}
 		};
 		dialogPresenter.setDto(new TestEntityDTO());
@@ -67,5 +72,15 @@ public class ListActivity extends AbstractActivity {
 	@MethodRef
 	public void removeEntity(TestEntityDTO dto) {
 		testEntities.remove(dto);
+		testService.itemRemoved(dto, new EmtpyCallback<Void>());
+	}
+	
+	public static class EmtpyCallback<T> implements AsyncCallback<T> {
+		@Override
+		public void onFailure(Throwable caught) {
+		}
+		@Override
+		public void onSuccess(T result) {
+		}
 	}
 }

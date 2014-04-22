@@ -1,7 +1,9 @@
 package com.doctusoft.gwt.light.shared;
 
 import lombok.ObservableAttribute;
+import lombok.ToString;
 
+@ToString
 public class TestEntityDTO {
 	
 	@ObservableAttribute
