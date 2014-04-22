@@ -5,15 +5,13 @@
 		<artifactId>gwt-light-parent</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<artifactId>mvp-example</artifactId>
-	<name>mvp-example</name>
-	<packaging>war</packaging>
+	<artifactId>gwt-light-mvp</artifactId>
+	<name>gwt-light-mvp</name>
 
 	<properties>
 	</properties>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
 		<resources>
 			<resource>
 			    <directory>${basedir}/src/main/java</directory>
@@ -31,17 +29,8 @@
 			<artifactId>guava</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava-gwt</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.doctusoft.gwt</groupId>
 			<artifactId>gwt-light</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.doctusoft.gwt</groupId>
-			<artifactId>gwt-light-mvp</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
