@@ -17,6 +17,8 @@ public class ListActivity extends AbstractActivity {
 	
 	@ObservableAttribute
 	private ObservableList<TestEntityDTO> testEntities;
+	
+	private static int idSeries = 1;
 
 	public ListActivity(ClientFactory clientFactory) {
 		this.clientFactory = clientFactory;
@@ -36,10 +38,34 @@ public class ListActivity extends AbstractActivity {
 
 	@MethodRef
 	public void addNewEntity() {
+		// instead of using listeners or further bindings, we use this solution to handle actions from the inner presenter
 		NewEntityModalDialogPresenter dialogPresenter = new NewEntityModalDialogPresenter() {
-			
+			@Override
+			public void save() {
+				super.save();
+				TestEntityDTO dto = getDto();
+				dto.setId(++ idSeries);
+				testEntities.add(dto);
+			}
 		};
+		dialogPresenter.setDto(new TestEntityDTO());
+		NewEntityModalDialogPresenter.form.cancel();	// cancel any possible previous change
 		clientFactory.getNewEntityModalDialog().setPresenter(dialogPresenter);
 		dialogPresenter.setVisible(true);
+	}
+	
+	@MethodRef
+	public void editEntity(TestEntityDTO dto) {
+		// nothing to override in this case, everything works fine by default
+		NewEntityModalDialogPresenter dialogPresenter = new NewEntityModalDialogPresenter();
+		dialogPresenter.setDto(dto);
+		NewEntityModalDialogPresenter.form.cancel();	// cancel any possible previous change
+		clientFactory.getNewEntityModalDialog().setPresenter(dialogPresenter);
+		dialogPresenter.setVisible(true);
+	}
+	
+	@MethodRef
+	public void removeEntity(TestEntityDTO dto) {
+		testEntities.remove(dto);
 	}
 }

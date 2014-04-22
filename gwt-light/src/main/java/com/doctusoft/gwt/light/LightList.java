@@ -1,10 +1,18 @@
 package com.doctusoft.gwt.light;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import lombok.ObservableAttribute;
+
+import com.doctusoft.common.core.bean.Attribute;
+import com.doctusoft.common.core.bean.ListenerRegistration;
 import com.doctusoft.common.core.bean.ValueChangeListener;
+import com.doctusoft.common.core.bean.binding.Bindings;
 import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.common.core.bean.binding.observable.ObservableList;
+import com.doctusoft.common.core.bean.binding.observable.ObservableList.ListElementInsertedListener;
+import com.doctusoft.common.core.bean.binding.observable.ObservableList.ListElementRemovedListener;
 import com.google.gwt.dom.client.Element;
 import com.xedge.jquery.client.JQuery;
 
@@ -17,7 +25,12 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 	protected String itemTemplate;
 	protected JQuery listParent;
 	
+	@ObservableAttribute(staticField=false)
 	protected List<T> data;
+	
+	protected List<JQuery> itemElements = new ArrayList<>();
+	private ListenerRegistration insertListener;
+	private ListenerRegistration deleteListener;
 
 	public LightList(final JQuery selector) {
 		super(selector);
@@ -35,25 +48,58 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 		templateItem.appendTo(temp);
 		itemTemplate = temp.get(0).getInnerHTML();
 		templateItem.remove();
+		_data.addChangeListener(this, new ValueChangeListener<List<T>>() {
+			@Override
+			public void valueChanged(List<T> newValue) {
+				// if the entire list refernce changes, we rerender everything
+				reRender();
+				attachNewList();
+			}
+		});
 	}
 	
-	public void setData(List<T> data) {
-		if (data != null) {
-			this.data = data;
-			reRender();
+	protected void attachNewList() {
+		// remove any previous listeners
+		if (insertListener != null) {
+			insertListener.removeHandler();
+			insertListener = null;
+		}
+		if (deleteListener != null) {
+			deleteListener.removeHandler();
+			deleteListener = null;
+		}
+		if (data instanceof ObservableList<?>) {
+			ObservableList<T> observableList = (ObservableList<T>) data;
+			insertListener = observableList.addInsertListener(new ListElementInsertedListener<T>() {
+				@Override
+				public void inserted(ObservableList<T> list, int index, T element) {
+					JQuery itemElement = JQuery.select(itemTemplate);
+					renderItem(itemElement, element, index);
+					if (index >= itemElements.size()) {
+						// insert as the last item
+						itemElements.add(itemElement);
+						itemElement.appendTo(listParent);
+					} else {
+						// insert at a specific position
+						itemElements.get(index).insertBefore(itemElement);
+						itemElements.add(index, itemElement);
+					}
+				}
+			});
+			deleteListener = observableList.addDeleteListener(new ListElementRemovedListener<T>() {
+				@Override
+				public void removed(ObservableList<T> list, int index, T element) {
+					// remove the element from the dom
+					itemElements.get(index).remove();
+					// remove the element from the list
+					itemElements.remove(index);
+				}
+			});
 		}
 	}
 	
 	public LightList<T> bind(final ValueBinding<? extends List<T>> binding) {
-		setData(binding.getValue());
-		if (binding instanceof ObservableValueBinding<?>) {
-			((ObservableValueBinding<List<T>>) binding).addValueChangeListener(new ValueChangeListener<List<T>>() {
-				@Override
-				public void valueChanged(List<T> value) {
-					setData(value);
-				}
-			});
-		}
+		Bindings.bind(binding, Bindings.on(this).get((Attribute)_data));
 		return this;
 	}
 
@@ -67,10 +113,13 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 	public void reRender() {
 		nativeRemoveChildren(listParent.get(0));
 		int count = 0;
+		if (data == null)
+			return;
 		for (T item : data) {
 			JQuery itemElement = JQuery.select(itemTemplate);
 			renderItem(itemElement, item, count);
 			itemElement.appendTo(listParent);
+			itemElements.add(itemElement);
 			count ++;
 		}
 	}

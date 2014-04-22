@@ -77,14 +77,18 @@ public abstract class ModalDialogBaseWithPresenter<Presenter> extends LightPanel
 	}
 
 	public void headerKey(final String key) {
+		headerString(getMessages().getString(key.replace('.', '_')));
+	}
+	
+	public void headerString(final String header) {
 		afterViewLoaded(new ViewLoadedListener() {
 			@Override
 			public void viewLoaded(AsyncLoadedView view) {
-				modalDiv.find(".modal-header-label").text(getMessages().getString(key.replace('.', '_')));
+				modalDiv.find(".modal-header-label").text(header);
 			}
 		});
 	}
-	
+
 	@Override
 	protected void postProcessTemplate() {
 		modalDiv = root.find("div.modal").attr("id", id);
