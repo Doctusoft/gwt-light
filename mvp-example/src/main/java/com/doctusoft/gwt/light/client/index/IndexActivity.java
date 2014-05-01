@@ -3,7 +3,7 @@ package com.doctusoft.gwt.light.client.index;
 import lombok.MethodRef;
 import lombok.ObservableAttribute;
 
-import com.doctusoft.gwt.light.ViewOf;
+import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;

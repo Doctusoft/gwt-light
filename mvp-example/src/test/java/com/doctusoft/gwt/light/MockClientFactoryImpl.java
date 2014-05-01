@@ -10,6 +10,7 @@ import com.doctusoft.gwt.light.client.list.TestRemoteServiceAsync;
 import com.doctusoft.gwt.light.mvp.AbstractIntegartionClientFactory;
 import com.doctusoft.gwt.light.mvp.IntegrationServiceFactory;
 import com.doctusoft.gwt.light.mvp.TotallyDummyEmptyView;
+import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.server.TestServiceRPC;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.google.gwt.activity.shared.ActivityMapper;

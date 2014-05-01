@@ -9,6 +9,7 @@ import com.doctusoft.common.core.bean.Attribute;
 import com.doctusoft.common.core.bean.ObservableAttribute;
 import com.doctusoft.common.core.bean.ValueChangeListener;
 import com.doctusoft.common.core.bean.binding.Bindings;
+import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.xedge.jquery.client.JQuery;
 
 public abstract class ModalDialogBaseWithPresenter<Presenter> extends LightPanelWithPresenter<Presenter>

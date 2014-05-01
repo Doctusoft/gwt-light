@@ -3,7 +3,6 @@ package com.doctusoft.gwt.light.client;
 import lombok.Getter;
 import lombok.LazyGetter;
 
-import com.doctusoft.gwt.light.ViewOf;
 import com.doctusoft.gwt.light.client.index.IndexActivity;
 import com.doctusoft.gwt.light.client.index.IndexViewImpl;
 import com.doctusoft.gwt.light.client.list.ListActivity;
@@ -14,6 +13,7 @@ import com.doctusoft.gwt.light.client.list.TestRemoteService;
 import com.doctusoft.gwt.light.client.list.TestRemoteServiceAsync;
 import com.doctusoft.gwt.light.mvp.GwtPlaceControllerWrapper;
 import com.doctusoft.gwt.light.mvp.IPlaceController;
+import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;

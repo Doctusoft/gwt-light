@@ -4,7 +4,7 @@ import lombok.MethodRef;
 import lombok.ObservableAttribute;
 
 import com.doctusoft.common.core.bean.binding.observable.ObservableList;
-import com.doctusoft.gwt.light.ViewOf;
+import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.doctusoft.gwt.light.shared.TestEntityDTO;
 import com.google.gwt.activity.shared.AbstractActivity;
