@@ -21,12 +21,15 @@ public abstract class AbstractIntegartionClientFactory {
 	
 	@Getter
 	private Activity currentPresenter;
+
+	@Getter
+	private IntegrationActivityManager activityManager;
 	
 	protected abstract ActivityMapper createActivityMapper();
 	
 	public AbstractIntegartionClientFactory() {
 		final ActivityMapper activityMapper = createActivityMapper();
-		final IntegrationActivityManager activityManager = new IntegrationActivityManager(activityMapper, eventBus);
+		activityManager = new IntegrationActivityManager(activityMapper, eventBus);
 		activityManager.setDisplay(new AcceptsOneWidget() {
 			@Override
 			public void setWidget(IsWidget w) {
