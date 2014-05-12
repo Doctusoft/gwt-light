@@ -2,13 +2,13 @@ package com.doctusoft.gwt.light;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import lombok.Getter;
-import lombok.ObservableAttribute;
 
-import com.doctusoft.common.core.bean.ListenerRegistration;
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ListenerRegistration;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.bean.binding.observable.ObservableValueBinding;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
@@ -22,10 +22,10 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	@Getter
 	protected JQuery root;
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	private boolean visible;
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	private boolean disabled;
 
 	protected ListenerRegistration visibilityChangeListener;
@@ -41,7 +41,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	}
 
 	protected void init() {
-		visibilityChangeListener = _visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		visibilityChangeListener = AbstractLightWidget_._visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
 				if (newValue == Boolean.TRUE) {
@@ -51,7 +51,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 				}
 			}
 		});
-		_disabled.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		AbstractLightWidget_._disabled.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
 				if (newValue == Boolean.TRUE) {
@@ -86,12 +86,12 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	}
 	
 	public Actual bindVisible(ValueBinding<Boolean> visibleBinding) {
-		Bindings.bind(visibleBinding, Bindings.on(this).get((com.doctusoft.common.core.bean.ObservableAttribute)_visible));
+		Bindings.bind(visibleBinding, Bindings.on(this).get((com.doctusoft.bean.ObservableProperty)AbstractLightWidget_._visible));
 		return (Actual) this;
 	}
 
 	public Actual bindDisabled(ValueBinding<Boolean> disabledBinding) {
-		Bindings.bind(disabledBinding, Bindings.on(this).get((com.doctusoft.common.core.bean.ObservableAttribute)_disabled));
+		Bindings.bind(disabledBinding, Bindings.on(this).get((com.doctusoft.bean.ObservableProperty)AbstractLightWidget_._disabled));
 		return (Actual) this;
 	}
 	

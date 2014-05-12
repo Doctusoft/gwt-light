@@ -1,20 +1,19 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ValueChangeListener;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ValueChangeListener;
 import com.google.gwt.dom.client.ButtonElement;
 import com.google.gwt.dom.client.Element;
 import com.xedge.jquery.client.JQuery;
 
 public class LightButton extends AbstractLightClickable<LightButton> {
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private boolean disabled;
 
 	public LightButton(JQuery selector) {
 		super(selector);
-		_disabled.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		LightButton_._disabled.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean disabled) {
 				Element e = root.get(0);

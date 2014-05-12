@@ -1,6 +1,6 @@
 package com.doctusoft.gwt.light.client.util;
 
-import com.doctusoft.common.core.bean.binding.Converter;
+import com.doctusoft.bean.binding.Converter;
 
 public class LongConverter implements Converter<Long, String> {
 	

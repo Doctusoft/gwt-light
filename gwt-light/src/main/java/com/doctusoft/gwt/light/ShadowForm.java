@@ -2,11 +2,11 @@ package com.doctusoft.gwt.light;
 
 import java.util.List;
 
-import com.doctusoft.common.core.bean.ListenerRegistration;
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
-import com.doctusoft.common.core.bean.internal.AttributeListeners;
+import com.doctusoft.bean.ListenerRegistration;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.bean.internal.PropertyListeners;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
@@ -92,7 +92,7 @@ public class ShadowForm {
 	}
 	
 	protected class ObservableWrappedFormBinding<T> extends WrappedFormBinding<T> implements ObservableValueBinding<T> {
-		AttributeListeners<T> listeners = new AttributeListeners<>();
+		PropertyListeners<T> listeners = new PropertyListeners<>();
 		public ObservableWrappedFormBinding(ObservableValueBinding<T> wrappedBinding) {
 			super(wrappedBinding);
 			wrappedBinding.addValueChangeListener(new ValueChangeListener<T>() {

@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.bean.binding.observable.ObservableValueBinding;
 
 public class TestShadowForm {
 	
@@ -15,7 +15,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ValueBinding<String> wrappedBinding = form.wrap(Bindings.on(vo).get(ExampleFormVO._value));
+		ValueBinding<String> wrappedBinding = form.wrap(Bindings.on(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// now we act like a text field that changes the value
 		wrappedBinding.setValue("changed");
@@ -34,7 +34,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ValueBinding<String> wrappedBinding = form.wrap(Bindings.on(vo).get(ExampleFormVO._value));
+		ValueBinding<String> wrappedBinding = form.wrap(Bindings.on(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// the user enters a value
 		wrappedBinding.setValue("changed");
@@ -51,7 +51,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO._value));
+		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// now we act like a text field that changes the value
 		wrappedBinding.setValue("changed");
@@ -70,7 +70,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO._value));
+		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// now we act like a text field that changes the value
 		wrappedBinding.setValue("changed");
@@ -86,7 +86,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO._value));
+		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// now we act like a text field that changes the value
 		wrappedBinding.setValue("changed");
@@ -109,7 +109,7 @@ public class TestShadowForm {
 		ExampleFormVO vo = new ExampleFormVO();
 		vo.setValue("helloworld");
 		ShadowForm form = new ShadowForm();
-		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO._value));
+		ObservableValueBinding<String> wrappedBinding = form.wrap(Bindings.obs(vo).get(ExampleFormVO_._value));
 		assertEquals("helloworld", vo.getValue());
 		// now we act like a text field that changes the value
 		wrappedBinding.setValue("changed");

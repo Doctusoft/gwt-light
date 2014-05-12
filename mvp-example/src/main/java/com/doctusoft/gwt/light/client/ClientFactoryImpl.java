@@ -1,7 +1,6 @@
 package com.doctusoft.gwt.light.client;
 
 import lombok.Getter;
-import lombok.LazyGetter;
 
 import com.doctusoft.gwt.light.client.index.IndexActivity;
 import com.doctusoft.gwt.light.client.index.IndexViewImpl;
@@ -28,15 +27,43 @@ public class ClientFactoryImpl implements ClientFactory {
 	@Getter
 	private final IPlaceController placeController = new GwtPlaceControllerWrapper(new PlaceController(eventBus));
 	
-	@LazyGetter
-	private final ViewOf<IndexActivity> indexView = new IndexViewImpl();
+	private ViewOf<IndexActivity> indexView = null;
+	
+	@Override
+	public ViewOf<IndexActivity> getIndexView() {
+		if (indexView == null) {
+			indexView = new IndexViewImpl();;
+		}
+		return indexView;
+	}
 
-	@LazyGetter
-	private final ViewOf<ListActivity> listView = new ListViewImpl();
+	private ViewOf<ListActivity> listView = null;
 	
-	@LazyGetter
-	private final ViewOf<NewEntityModalDialogPresenter> newEntityModalDialog = new NewEntityModalDialog();
+	@Override
+	public ViewOf<ListActivity> getListView() {
+		if (listView == null) {
+			listView = new ListViewImpl();
+		}
+		return listView;
+	}
 	
-	@LazyGetter
-	private final TestRemoteServiceAsync testRemoteServiceAsync = GWT.create(TestRemoteService.class);
+	private ViewOf<NewEntityModalDialogPresenter> newEntityModalDialog = null;
+	
+	@Override
+	public ViewOf<NewEntityModalDialogPresenter> getNewEntityModalDialog() {
+		if (newEntityModalDialog == null) {
+			newEntityModalDialog = new NewEntityModalDialog();
+		}
+		return newEntityModalDialog;
+	}
+	
+	private TestRemoteServiceAsync testRemoteServiceAsync = null;
+	
+	@Override
+	public TestRemoteServiceAsync getTestRemoteServiceAsync() {
+		if (testRemoteServiceAsync == null) {
+			testRemoteServiceAsync = GWT.create(TestRemoteService.class);;
+		}
+		return testRemoteServiceAsync;
+	}
 }

@@ -1,10 +1,10 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
+import com.doctusoft.ObservableProperty;
 
 public class ExampleFormVO {
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String value;
 
 }

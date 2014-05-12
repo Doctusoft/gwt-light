@@ -5,10 +5,10 @@ import java.util.List;
 
 import lombok.Setter;
 
-import com.doctusoft.common.core.bean.Attribute;
-import com.doctusoft.common.core.bean.ObservableAttribute;
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
+import com.doctusoft.bean.ObservableProperty;
+import com.doctusoft.bean.Property;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
 import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.xedge.jquery.client.JQuery;
 
@@ -37,7 +37,7 @@ public abstract class ModalDialogBaseWithPresenter<Presenter> extends LightPanel
 	protected void initDialogBase() {
 		// remove prior default visibility change listener
 		visibilityChangeListener.removeHandler();
-		_visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		AbstractLightWidget_._visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			boolean oldValue = false;
 			public void valueChanged(Boolean visible) {
 				if (!oldValue && visible) {
@@ -113,8 +113,8 @@ public abstract class ModalDialogBaseWithPresenter<Presenter> extends LightPanel
 						root.children().appendTo(modalContent);
 						dispose();
 						if (getPresenter() instanceof AbstractModalPresenter) {
-							Bindings.bind(bindOnPresenter().get((ObservableAttribute)((AbstractModalPresenter)getPresenter())._visible),
-									Bindings.on(ModalDialogBaseWithPresenter.this).get((Attribute)_visible));
+							Bindings.bind(bindOnPresenter().get((ObservableProperty)AbstractModalPresenter_._visible),
+									Bindings.on(ModalDialogBaseWithPresenter.this).get((Property)AbstractLightWidget_._visible));
 						}
 						onDialogContentLoaded();
 						fireDialogLoadedListeners();

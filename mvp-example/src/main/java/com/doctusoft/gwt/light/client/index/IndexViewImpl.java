@@ -13,9 +13,9 @@ public class IndexViewImpl extends BaseView<IndexActivity> {
 	
 	@Override
 	protected void onTemplateLoaded() {
-		new LightTextbox("#nameInput").bind(bindOnPresenter().get(IndexActivity._name));
-		new LightButton("#greetButton").click(presenterMethod(IndexActivity.__greet));
-		new LightLabel("#greetingText").bindText(bindOnPresenter().get(IndexActivity._greetingLabel));
+		new LightTextbox("#nameInput").bind(bindOnPresenter().get(IndexActivity_._name));
+		new LightButton("#greetButton").click(presenterMethod(IndexActivity_.__greet));
+		new LightLabel("#greetingText").bindText(bindOnPresenter().get(IndexActivity_._greetingLabel));
 	}
 	
 

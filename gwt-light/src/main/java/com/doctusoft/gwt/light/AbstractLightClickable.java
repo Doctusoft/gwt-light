@@ -1,8 +1,8 @@
 package com.doctusoft.gwt.light;
 
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.bean.binding.observable.ObservableValueBinding;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.xedge.jquery.client.JQEvent;
 import com.xedge.jquery.client.JQuery;

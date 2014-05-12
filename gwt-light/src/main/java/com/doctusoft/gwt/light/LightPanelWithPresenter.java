@@ -1,17 +1,16 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ParametricClassMethodReferences.ClassMethodReference0;
-import com.doctusoft.common.core.bean.ParametricClassMethodReferences.ClassMethodReference1;
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.observable.ObservableChainedValueBindingBuilder;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ParametricClassMethodReferences.ClassMethodReference0;
+import com.doctusoft.bean.ParametricClassMethodReferences.ClassMethodReference1;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.observable.ObservableChainedValueBindingBuilder;
 import com.google.gwt.dom.client.Element;
 import com.xedge.jquery.client.JQuery;
 
 public abstract class LightPanelWithPresenter<Presenter> extends AbstractLightPanel {
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	protected Presenter presenter;
 
 	public LightPanelWithPresenter(final Element element) {
@@ -48,7 +47,7 @@ public abstract class LightPanelWithPresenter<Presenter> extends AbstractLightPa
 	}
 	
 	protected ObservableChainedValueBindingBuilder<Presenter> bindOnPresenter() {
-		return ObservableChainedValueBindingBuilder.on(this).get((com.doctusoft.common.core.bean.ObservableAttribute<LightPanelWithPresenter<Presenter>, Presenter>)(Object)_presenter);
+		return ObservableChainedValueBindingBuilder.on(this).get((com.doctusoft.bean.ObservableProperty)LightPanelWithPresenter_._presenter);
 	}
 
 	protected EmptyEventListener presenterMethod(final ClassMethodReference0<? super Presenter, Void> methodRef) {

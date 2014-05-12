@@ -3,7 +3,7 @@ package com.doctusoft.gwt.light.client.list;
 import com.doctusoft.gwt.light.LightButton;
 import com.doctusoft.gwt.light.LightTextbox;
 import com.doctusoft.gwt.light.ModalDialogBaseWithPresenter;
-import com.doctusoft.gwt.light.shared.TestEntityDTO;
+import com.doctusoft.gwt.light.shared.TestEntityDTO_;
 import com.google.gwt.i18n.client.ConstantsWithLookup;
 
 public class NewEntityModalDialog extends ModalDialogBaseWithPresenter<NewEntityModalDialogPresenter> {
@@ -15,9 +15,9 @@ public class NewEntityModalDialog extends ModalDialogBaseWithPresenter<NewEntity
 	
 	@Override
 	protected void onDialogContentLoaded() {
-		new LightTextbox("#entityName").bind(NewEntityModalDialogPresenter.form.wrap(bindOnPresenter().get(NewEntityModalDialogPresenter._dto).get(TestEntityDTO._name)));
-		new LightButton("#okButton").click(presenterMethod(NewEntityModalDialogPresenter.__save));
-		new LightButton("#cancelButton").click(presenterMethod(NewEntityModalDialogPresenter.__cancel));
+		new LightTextbox("#entityName").bind(NewEntityModalDialogPresenter.form.wrap(bindOnPresenter().get(NewEntityModalDialogPresenter_._dto).get(TestEntityDTO_._name)));
+		new LightButton("#okButton").click(presenterMethod(NewEntityModalDialogPresenter_.__save));
+		new LightButton("#cancelButton").click(presenterMethod(NewEntityModalDialogPresenter_.__cancel));
 	}
 	
 	@Override

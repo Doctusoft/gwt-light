@@ -3,16 +3,15 @@ package com.doctusoft.gwt.light;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.Attribute;
-import com.doctusoft.common.core.bean.ListenerRegistration;
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableList;
-import com.doctusoft.common.core.bean.binding.observable.ObservableList.ListElementInsertedListener;
-import com.doctusoft.common.core.bean.binding.observable.ObservableList.ListElementRemovedListener;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ListenerRegistration;
+import com.doctusoft.bean.Property;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.bean.binding.observable.ObservableList;
+import com.doctusoft.bean.binding.observable.ObservableList.ListElementInsertedListener;
+import com.doctusoft.bean.binding.observable.ObservableList.ListElementRemovedListener;
 import com.google.gwt.dom.client.Element;
 import com.xedge.jquery.client.JQuery;
 
@@ -25,7 +24,7 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 	protected String itemTemplate;
 	protected JQuery listParent;
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	protected List<T> data;
 	
 	protected List<JQuery> itemElements = new ArrayList<>();
@@ -48,9 +47,9 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 		templateItem.appendTo(temp);
 		itemTemplate = temp.get(0).getInnerHTML();
 		templateItem.remove();
-		_data.addChangeListener(this, new ValueChangeListener<List<T>>() {
+		LightList_._data.addChangeListener(this, new ValueChangeListener<List<?>>() {
 			@Override
-			public void valueChanged(List<T> newValue) {
+			public void valueChanged(List<?> newValue) {
 				// if the entire list refernce changes, we rerender everything
 				reRender();
 				attachNewList();
@@ -99,7 +98,7 @@ public abstract class LightList<T> extends AbstractLightWidget<LightList<T>> {
 	}
 	
 	public LightList<T> bind(final ValueBinding<? extends List<T>> binding) {
-		Bindings.bind(binding, Bindings.on(this).get((Attribute)_data));
+		Bindings.bind(binding, Bindings.on(this).get((Property)LightList_._data));
 		return this;
 	}
 

@@ -1,9 +1,8 @@
 package com.doctusoft.gwt.light.client.list;
 
-import lombok.MethodRef;
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.binding.observable.ObservableList;
+import com.doctusoft.MethodRef;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.binding.observable.ObservableList;
 import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.doctusoft.gwt.light.shared.TestEntityDTO;
@@ -16,7 +15,7 @@ public class ListActivity extends AbstractActivity {
 	
 	private ClientFactory clientFactory;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private ObservableList<TestEntityDTO> testEntities;
 	
 	private static int idSeries = 1;

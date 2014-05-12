@@ -1,6 +1,6 @@
 package com.doctusoft.gwt.light;
 
-import lombok.LazyGetter;
+import lombok.Getter;
 
 import com.doctusoft.gwt.light.client.ExampleActivityMapper;
 import com.doctusoft.gwt.light.client.index.IndexActivity;
@@ -22,19 +22,19 @@ public class MockClientFactoryImpl extends AbstractIntegartionClientFactory impl
 		return new ExampleActivityMapper(this);
 	}
 	
-	@LazyGetter
+	@Getter
 	private ViewOf<IndexActivity> indexView = new TotallyDummyEmptyView<>();
 
-	@LazyGetter
+	@Getter
 	private ViewOf<ListActivity> listView = new TotallyDummyEmptyView<>();
 
-	@LazyGetter
+	@Getter
 	private ViewOf<NewEntityModalDialogPresenter> newEntityModalDialog = new TotallyDummyEmptyView<>();
 
 	/**
 	 * Normally here you'd use a Guice injector or something to get reference to the RPC implementation
 	 */
-	@LazyGetter
+	@Getter
 	private TestRemoteServiceAsync testRemoteServiceAsync = IntegrationServiceFactory.getService(TestRemoteServiceAsync.class,
 			new TestServiceRPC());
 

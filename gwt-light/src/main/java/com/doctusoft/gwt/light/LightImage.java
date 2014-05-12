@@ -1,18 +1,17 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
 import com.xedge.jquery.client.JQuery;
 
 public class LightImage extends AbstractLightWidget<LightImage> {
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String src;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String alt;
 
 	public LightImage(final JQuery selector) {
@@ -25,7 +24,7 @@ public class LightImage extends AbstractLightWidget<LightImage> {
 	}
 	
 	protected void initImage() {
-		_visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		AbstractLightWidget_._visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
 				if (newValue == Boolean.TRUE) {
@@ -35,13 +34,13 @@ public class LightImage extends AbstractLightWidget<LightImage> {
 				}
 			}
 		});
-		_src.addChangeListener(this, new ValueChangeListener<String>() {
+		LightImage_._src.addChangeListener(this, new ValueChangeListener<String>() {
 			@Override
 			public void valueChanged(String newValue) {
 				root.attr("src", newValue);
 			}
 		});
-		_alt.addChangeListener(this, new ValueChangeListener<String>() {
+		LightImage_._alt.addChangeListener(this, new ValueChangeListener<String>() {
 			@Override
 			public void valueChanged(String newValue) {
 				root.attr("alt", newValue);
@@ -49,17 +48,13 @@ public class LightImage extends AbstractLightWidget<LightImage> {
 		});
 	}
 	
-	public void setAlt(final String alt){
-		root.attr("alt", alt);
-	}
-	
 	public LightImage bindSrc(final ValueBinding<String> srcBinding) {
-		Bindings.bind(srcBinding, Bindings.on(this).get(_src));
+		Bindings.bind(srcBinding, Bindings.on(this).get(LightImage_._src));
 		return this;
 	}
 	
 	public LightImage bindAlt(final ValueBinding<String> altBinding) {
-		Bindings.bind(altBinding, Bindings.on(this).get(_alt));
+		Bindings.bind(altBinding, Bindings.on(this).get(LightImage_._alt));
 		return this;
 	}
 }

@@ -1,10 +1,9 @@
 package com.doctusoft.gwt.light.client.util;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ParametricClassMethodReferences.ClassMethodReference0;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.observable.ObservableChainedValueBindingBuilder;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ParametricClassMethodReferences.ClassMethodReference0;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.observable.ObservableChainedValueBindingBuilder;
 import com.doctusoft.gwt.light.EmptyEventListener;
 import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -14,7 +13,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
  */
 public abstract class AbstractGwtView<Presenter> extends HorizontalPanel implements ViewOf<Presenter> {
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	private Presenter presenter;
 	
 	@Override
@@ -23,7 +22,7 @@ public abstract class AbstractGwtView<Presenter> extends HorizontalPanel impleme
 	}
 	
 	protected ObservableChainedValueBindingBuilder<Presenter> bindOnPresenter() {
-		return Bindings.obs(this).get((com.doctusoft.common.core.bean.ObservableAttribute)(Object)_presenter);
+		return Bindings.obs(this).get((com.doctusoft.bean.ObservableProperty)AbstractGwtView_._presenter);
 	}
 
 	protected EmptyEventListener presenterMethod(final ClassMethodReference0<? super Presenter, Void> methodRef) {

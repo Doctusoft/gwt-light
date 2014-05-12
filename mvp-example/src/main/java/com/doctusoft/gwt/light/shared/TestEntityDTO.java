@@ -3,17 +3,17 @@ package com.doctusoft.gwt.light.shared;
 import java.io.Serializable;
 
 import lombok.EqualsAndHashCode;
-import lombok.ObservableAttribute;
+import com.doctusoft.ObservableProperty;
 import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode(of={"id", "name"})
 public class TestEntityDTO implements Serializable {
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private long id;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String name;
 
 }

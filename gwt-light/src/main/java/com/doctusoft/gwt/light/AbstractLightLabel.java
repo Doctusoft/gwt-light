@@ -1,21 +1,19 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
-import com.doctusoft.common.core.bean.binding.observable.ObservableValueBinding;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
 import com.xedge.jquery.client.JQuery;
 
 public abstract class AbstractLightLabel<Actual extends AbstractLightLabel<Actual>> extends AbstractLightWidget<Actual> {
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	private String text;
 	
 	public AbstractLightLabel(JQuery selector) {
 		super(selector);
-		_text.addChangeListener(this, new ValueChangeListener<String>() {
+		AbstractLightLabel_._text.addChangeListener(this, new ValueChangeListener<String>() {
 			@Override
 			public void valueChanged(String newValue) {
 				root.html(newValue);
@@ -33,7 +31,7 @@ public abstract class AbstractLightLabel<Actual extends AbstractLightLabel<Actua
 	}
 	
 	public Actual bindText(final ValueBinding<String> binding) {
-		Bindings.bind(binding, Bindings.on(this).get((com.doctusoft.common.core.bean.ObservableAttribute)_text));
+		Bindings.bind(binding, Bindings.on(this).get((com.doctusoft.bean.ObservableProperty)AbstractLightLabel_._text));
 		return (Actual) this;
 	}
 

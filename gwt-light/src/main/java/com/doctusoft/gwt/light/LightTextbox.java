@@ -1,10 +1,9 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
 import com.google.gwt.user.client.Timer;
 import com.xedge.jquery.client.JQEvent;
 import com.xedge.jquery.client.JQuery;
@@ -14,7 +13,7 @@ public class LightTextbox extends AbstractLightWidget<LightTextbox> {
 	
 	private boolean immediate = false;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String text;
 	
 	public LightTextbox(JQuery selector) {
@@ -27,7 +26,7 @@ public class LightTextbox extends AbstractLightWidget<LightTextbox> {
 	}
 	
 	protected void initTextbox() {
-		_text.addChangeListener(this, new ValueChangeListener<String>() {
+		LightTextbox_._text.addChangeListener(this, new ValueChangeListener<String>() {
 			@Override
 			public void valueChanged(String newValue) {
 				root.val(newValue);
@@ -63,7 +62,7 @@ public class LightTextbox extends AbstractLightWidget<LightTextbox> {
 	}
 	
 	public LightTextbox bind(final ValueBinding<String> binding) {
-		Bindings.bind(binding, Bindings.obs(this).get(_text));
+		Bindings.bind(binding, Bindings.obs(this).get(LightTextbox_._text));
 		return this;
 	}
 	

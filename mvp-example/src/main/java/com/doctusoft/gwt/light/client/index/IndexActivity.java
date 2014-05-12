@@ -1,8 +1,7 @@
 package com.doctusoft.gwt.light.client.index;
 
-import lombok.MethodRef;
-import lombok.ObservableAttribute;
-
+import com.doctusoft.MethodRef;
+import com.doctusoft.ObservableProperty;
 import com.doctusoft.gwt.light.mvp.ViewOf;
 import com.doctusoft.gwt.light.shared.ClientFactory;
 import com.google.gwt.activity.shared.AbstractActivity;
@@ -13,10 +12,10 @@ public class IndexActivity extends AbstractActivity {
 	
 	private ClientFactory clientFactory;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String name;
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private String greetingLabel;
 
 	public IndexActivity(ClientFactory clientFactory) {

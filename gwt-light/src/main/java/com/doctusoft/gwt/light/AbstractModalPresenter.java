@@ -1,10 +1,10 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
+import com.doctusoft.ObservableProperty;
 
 public abstract class AbstractModalPresenter {
 	
-	@ObservableAttribute(staticField=false)
+	@ObservableProperty
 	private boolean visible;
 	
 	

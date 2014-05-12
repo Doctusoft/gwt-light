@@ -1,17 +1,16 @@
 package com.doctusoft.gwt.light;
 
-import lombok.ObservableAttribute;
-
-import com.doctusoft.common.core.bean.ValueChangeListener;
-import com.doctusoft.common.core.bean.binding.Bindings;
-import com.doctusoft.common.core.bean.binding.ValueBinding;
+import com.doctusoft.ObservableProperty;
+import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
+import com.doctusoft.bean.binding.ValueBinding;
 import com.xedge.jquery.client.JQEvent;
 import com.xedge.jquery.client.JQuery;
 import com.xedge.jquery.client.handlers.EventHandler;
 
 public class LightCheckbox extends AbstractLightWidget<LightCheckbox> {
 	
-	@ObservableAttribute
+	@ObservableProperty
 	private boolean checked;
 	
 	/**
@@ -23,7 +22,7 @@ public class LightCheckbox extends AbstractLightWidget<LightCheckbox> {
 
 	public LightCheckbox(JQuery selector) {
 		super(selector);
-		_checked.addChangeListener(this, new ValueChangeListener<Boolean>() {
+		LightCheckbox_._checked.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
 				if (Boolean.TRUE == newValue) {
@@ -46,7 +45,7 @@ public class LightCheckbox extends AbstractLightWidget<LightCheckbox> {
 	}
 	
 	public LightCheckbox bind(final ValueBinding<Boolean> binding) {
-		Bindings.bind(binding, Bindings.obs(this).get(_checked));
+		Bindings.bind(binding, Bindings.obs(this).get(LightCheckbox_._checked));
 		return this;
 	}
 
