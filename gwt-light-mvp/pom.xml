@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.doctusoft.gwt</groupId>
 		<artifactId>gwt-light-parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.2</version>
 	</parent>
 	<artifactId>gwt-light-mvp</artifactId>
 	<name>gwt-light-mvp</name>
