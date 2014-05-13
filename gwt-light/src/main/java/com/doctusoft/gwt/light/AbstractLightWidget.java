@@ -23,10 +23,10 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	protected JQuery root;
 	
 	@ObservableProperty
-	private Boolean visible;
+	private Boolean visible = true;
 	
 	@ObservableProperty
-	private Boolean disabled;
+	private Boolean disabled = false;
 
 	protected ListenerRegistration visibilityChangeListener;
 
