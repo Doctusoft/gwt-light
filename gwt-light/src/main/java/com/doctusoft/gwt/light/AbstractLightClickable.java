@@ -37,7 +37,7 @@ public abstract class AbstractLightClickable<Actual extends AbstractLightClickab
 		root.click(new EventHandler() {
 			@Override
 			public void eventComplete(JQEvent event, JQuery currentJQuery) {
-				if (!getDisabled()) {
+				if (Boolean.FALSE.equals(getDisabled())) {
 					listener.handle();
 				}
 			}
