@@ -39,7 +39,8 @@ public abstract class ModalDialogBaseWithPresenter<Presenter> extends LightPanel
 		visibilityChangeListener.removeHandler();
 		AbstractLightWidget_._visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			boolean oldValue = false;
-			public void valueChanged(Boolean visible) {
+			public void valueChanged(Boolean _visible) {
+				boolean visible = Boolean.TRUE.equals(_visible);
 				if (!oldValue && visible) {
 					show();
 					if (initialFocusElement != null) {

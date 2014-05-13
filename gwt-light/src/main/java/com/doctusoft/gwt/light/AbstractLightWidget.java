@@ -23,10 +23,10 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 	protected JQuery root;
 	
 	@ObservableProperty
-	private boolean visible;
+	private Boolean visible;
 	
 	@ObservableProperty
-	private boolean disabled;
+	private Boolean disabled;
 
 	protected ListenerRegistration visibilityChangeListener;
 
@@ -44,7 +44,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 		visibilityChangeListener = AbstractLightWidget_._visible.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
-				if (newValue == Boolean.TRUE) {
+				if (Boolean.TRUE.equals(newValue)) {
 					root.show();
 				} else {
 					root.hide();
@@ -54,7 +54,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 		AbstractLightWidget_._disabled.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
-				if (newValue == Boolean.TRUE) {
+				if (Boolean.TRUE.equals(newValue)) {
 					root.attr("disabled", "disabled");
 				} else {
 					root.removeAttr("disabled");
@@ -119,7 +119,7 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 			}
 		}
 		public void applyValue(Boolean value) {
-			if (value == Boolean.TRUE) {
+			if (Boolean.TRUE.equals(value)) {
 				root.addClass(styleClass);
 			} else {
 				root.removeClass(styleClass);

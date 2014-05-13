@@ -11,7 +11,7 @@ import com.xedge.jquery.client.handlers.EventHandler;
 public class LightCheckbox extends AbstractLightWidget<LightCheckbox> {
 	
 	@ObservableProperty
-	private boolean checked;
+	private Boolean checked;
 	
 	/**
 	 * https://code.google.com/p/gwt-jquery/issues/detail?id=5
@@ -25,7 +25,7 @@ public class LightCheckbox extends AbstractLightWidget<LightCheckbox> {
 		LightCheckbox_._checked.addChangeListener(this, new ValueChangeListener<Boolean>() {
 			@Override
 			public void valueChanged(Boolean newValue) {
-				if (Boolean.TRUE == newValue) {
+				if (Boolean.TRUE.equals(newValue)) {
 					propBoolean(root, "checked", true);
 				} else {
 					propBoolean(root, "checked", false);
