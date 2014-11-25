@@ -14,8 +14,8 @@
 
 	<properties>
 		<version.guava>16.0.1</version.guava>
-		<lombok.ds.version>0.2.4</lombok.ds.version>
-		<ds.bean.version>0.2.4</ds.bean.version>
+		<lombok.ds.version>0.4.4</lombok.ds.version>
+		<ds.bean.version>0.4.5</ds.bean.version>
 
 		<gwt.version>2.6.0</gwt.version>
 		<gwt.style>OBFUSCATED</gwt.style>
@@ -247,7 +247,6 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

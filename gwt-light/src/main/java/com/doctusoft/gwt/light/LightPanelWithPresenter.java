@@ -4,6 +4,7 @@ import com.doctusoft.ObservableProperty;
 import com.doctusoft.bean.ParametricClassMethodReferences.ClassMethodReference0;
 import com.doctusoft.bean.ParametricClassMethodReferences.ClassMethodReference1;
 import com.doctusoft.bean.ValueChangeListener;
+import com.doctusoft.bean.binding.Bindings;
 import com.doctusoft.bean.binding.observable.ObservableChainedValueBindingBuilder;
 import com.google.gwt.dom.client.Element;
 import com.xedge.jquery.client.JQuery;
@@ -47,7 +48,7 @@ public abstract class LightPanelWithPresenter<Presenter> extends AbstractLightPa
 	}
 	
 	protected ObservableChainedValueBindingBuilder<Presenter> bindOnPresenter() {
-		return ObservableChainedValueBindingBuilder.on(this).get((com.doctusoft.bean.ObservableProperty)LightPanelWithPresenter_._presenter);
+		return Bindings.obs(this).get((com.doctusoft.bean.ObservableProperty)LightPanelWithPresenter_._presenter);
 	}
 
 	protected EmptyEventListener presenterMethod(final ClassMethodReference0<? super Presenter, Void> methodRef) {

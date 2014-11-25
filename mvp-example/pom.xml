@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<gae.version>1.9.0</gae.version>
+		<gae.version>1.9.14</gae.version>
 	</properties>
 
 	<build>
@@ -24,7 +24,7 @@
 			<plugin>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.9.3</version>
+				<version>${gae.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -93,7 +93,6 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${version.maven.compiler.plugin}</version>
 				<configuration>
 					<compilerVersion>${maven.compiler.target}</compilerVersion>
 					<source>${maven.compiler.source}</source>
