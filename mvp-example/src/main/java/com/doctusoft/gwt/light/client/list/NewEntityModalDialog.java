@@ -9,8 +9,9 @@ import com.google.gwt.i18n.client.ConstantsWithLookup;
 public class NewEntityModalDialog extends ModalDialogBaseWithPresenter<NewEntityModalDialogPresenter> {
 	
 	public NewEntityModalDialog() {
-		super("newEntityModal", "templates/NewEntityModalDialog.html");
+        super("newEntityModal");
 		headerString("Edit entity");
+        initDialogBase("templates/NewEntityModalDialog.html");
 	}
 	
 	@Override
