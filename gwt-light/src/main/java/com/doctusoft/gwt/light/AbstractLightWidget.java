@@ -85,6 +85,16 @@ public abstract class AbstractLightWidget<Actual extends AbstractLightWidget<Act
 		}
 	}
 	
+	public Actual withStyleClass(String styleClass) {
+		root.addClass(styleClass);
+		return (Actual) this;
+	}
+	
+	public Actual removeStyleClass(String styleClass) {
+		root.removeClass(styleClass);
+		return (Actual) this;
+	}
+	
 	public Actual bindVisible(ValueBinding<Boolean> visibleBinding) {
 		Bindings.bind(visibleBinding, Bindings.on(this).get((com.doctusoft.bean.ObservableProperty)AbstractLightWidget_._visible));
 		return (Actual) this;
