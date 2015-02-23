@@ -87,6 +87,10 @@ public abstract class AbstractLightPanel<Actual extends AbstractLightPanel<Actua
 	protected void applyTranslations() {
 		// content.find() should work, but it doesn't for some reason ...
 		final ConstantsWithLookup messages = getMessages();
+		applyTranslations(root, messages);
+	}
+	
+	public static void applyTranslations(JQuery root, final ConstantsWithLookup messages) {
 		root.find("[translation-key]").each(new IterateElementHandler() {
 			@Override
 			public void execute(int index, Element element, JQuery currentJQuery) {
