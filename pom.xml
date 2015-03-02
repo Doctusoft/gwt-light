@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.doctusoft.gwt</groupId>
 	<artifactId>gwt-light-parent</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>gwt-light-parent</name>
 	<packaging>pom</packaging>
 	
@@ -307,6 +307,6 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/Doctusoft/gwt-light</connection>
-    <tag>HEAD</tag>
+    <tag>v0.0.3</tag>
   </scm>
 </project>
